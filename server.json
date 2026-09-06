@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
   "name": "io.github.SnipperApp/snipper-mcp",
-  "description": "Search, read, create, and organise SnipperApp 3 code snippets. The server ships inside the SnipperApp 3 macOS app; this bundle launches it.",
+  "description": "Search, read, create and organise code snippets in SnipperApp 3, a native macOS snippet manager.",
   "version": "1.0.0",
   "repository": {
     "url": "https://github.com/SnipperApp/snipper-mcp",
