@@ -3,7 +3,7 @@
 1. Bump `version` in `mcpb/manifest.json` and `server.json`.
 2. `npx @anthropic-ai/mcpb pack mcpb snipperapp-<version>.mcpb` and `shasum -a 256 snipperapp-<version>.mcpb`; put the hash in `server.json` (`fileSha256`) and the release URL in `identifier`.
 3. `gh release create v<version> snipperapp-<version>.mcpb --title "v<version>" --notes "..."`.
-4. Official MCP registry (one-time login, then per release):
+4. Official MCP registry (one-time login, then per release). Current live entry: `io.github.teologov/snipper-mcp` (published 2026-09-06). `server.json` names the org namespace `io.github.SnipperApp/snipper-mcp`; publishing under it requires the publisher's token to see the public org membership (GitHub's `/users/teologov/orgs` listing lagged on 2026-09-06). Once it works, publish under the org name and mark the personal entry deprecated.
    ```bash
    brew install mcp-publisher   # or download from github.com/modelcontextprotocol/registry/releases
    mcp-publisher login github    # device flow in the browser; namespace io.github.SnipperApp/*
