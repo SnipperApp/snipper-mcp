@@ -13,7 +13,7 @@ This repository documents the server's interface. The server itself is part of t
 
 ## Install in Claude Desktop (one click)
 
-Download `snipperapp-1.0.0.mcpb` from the [latest release](https://github.com/SnipperApp/snipper-mcp/releases/latest) and open it; Claude Desktop installs it as an extension. The bundle contains only a small launcher (`mcpb/server/index.js`) that finds the server inside SnipperApp 3 and hands over stdio. SnipperApp 3 must be installed.
+Download `snipperapp-1.0.1.mcpb` from the [latest release](https://github.com/SnipperApp/snipper-mcp/releases/latest) and open it; Claude Desktop installs it as an extension. The bundle contains only a small launcher (`mcpb/server/index.js`) that finds the server inside SnipperApp 3 and hands over stdio. Without the app it still answers `initialize` and `tools/list` (the manifest in `mcpb/server/tools.json`), and every tool call returns a clear not-installed error; a `Dockerfile` runs that mode for registry introspection checks.
 
 ## Setup (manual)
 

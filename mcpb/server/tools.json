@@ -1,0 +1,488 @@
+{
+ "tools": [
+  {
+   "description": "Search for code snippets by keyword, language, or filter by favorites",
+   "inputSchema": {
+    "properties": {
+     "favorite": {
+      "description": "Filter to only favorite snippets",
+      "type": "boolean"
+     },
+     "language": {
+      "description": "Filter by programming language",
+      "type": "string"
+     },
+     "limit": {
+      "description": "Maximum number of results (default 20, max 100)",
+      "type": "integer"
+     },
+     "query": {
+      "description": "Search query to match against title or content",
+      "type": "string"
+     }
+    },
+    "type": "object"
+   },
+   "name": "search_snippets"
+  },
+  {
+   "description": "Get a specific snippet by its ID",
+   "inputSchema": {
+    "properties": {
+     "id": {
+      "description": "The UUID of the snippet",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "name": "get_snippet"
+  },
+  {
+   "description": "Create a new code snippet",
+   "inputSchema": {
+    "properties": {
+     "content": {
+      "description": "The code content",
+      "type": "string"
+     },
+     "folder_id": {
+      "description": "UUID of the folder to place snippet in (optional)",
+      "type": "string"
+     },
+     "language": {
+      "description": "Programming language (optional)",
+      "type": "string"
+     },
+     "title": {
+      "description": "Title of the snippet",
+      "type": "string"
+     },
+     "workspace_id": {
+      "description": "UUID of the workspace (optional, defaults to first workspace)",
+      "type": "string"
+     }
+    },
+    "required": [
+     "title",
+     "content"
+    ],
+    "type": "object"
+   },
+   "name": "create_snippet"
+  },
+  {
+   "description": "List all folders",
+   "inputSchema": {
+    "properties": {},
+    "type": "object"
+   },
+   "name": "list_folders"
+  },
+  {
+   "description": "List all tags",
+   "inputSchema": {
+    "properties": {},
+    "type": "object"
+   },
+   "name": "list_tags"
+  },
+  {
+   "description": "List all supported programming languages for snippets",
+   "inputSchema": {
+    "properties": {},
+    "type": "object"
+   },
+   "name": "list_languages"
+  },
+  {
+   "description": "Update an existing snippet",
+   "inputSchema": {
+    "properties": {
+     "content": {
+      "description": "New content (optional)",
+      "type": "string"
+     },
+     "folder_id": {
+      "description": "New folder UUID (optional, use empty string to remove from folder)",
+      "type": "string"
+     },
+     "id": {
+      "description": "The UUID of the snippet to update",
+      "type": "string"
+     },
+     "is_favorite": {
+      "description": "Set favorite status (optional)",
+      "type": "boolean"
+     },
+     "language": {
+      "description": "New language (optional)",
+      "type": "string"
+     },
+     "title": {
+      "description": "New title (optional)",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "name": "update_snippet"
+  },
+  {
+   "description": "Move a snippet to trash",
+   "inputSchema": {
+    "properties": {
+     "id": {
+      "description": "The UUID of the snippet to delete",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "name": "delete_snippet"
+  },
+  {
+   "description": "List all workspaces with their IDs, names, and active status",
+   "inputSchema": {
+    "properties": {},
+    "type": "object"
+   },
+   "name": "list_workspaces"
+  },
+  {
+   "description": "List all storages, optionally filtered by workspace",
+   "inputSchema": {
+    "properties": {
+     "workspace_id": {
+      "description": "Optional workspace UUID to filter storages",
+      "type": "string"
+     }
+    },
+    "type": "object"
+   },
+   "name": "list_storages"
+  },
+  {
+   "description": "List all groups (needed to create folders)",
+   "inputSchema": {
+    "properties": {},
+    "type": "object"
+   },
+   "name": "list_groups"
+  },
+  {
+   "description": "Create a new folder",
+   "inputSchema": {
+    "properties": {
+     "color": {
+      "description": "Hex color code (optional)",
+      "type": "string"
+     },
+     "group_id": {
+      "description": "UUID of the group to create folder in",
+      "type": "string"
+     },
+     "icon": {
+      "description": "SF Symbol icon name (optional)",
+      "type": "string"
+     },
+     "name": {
+      "description": "Name of the folder",
+      "type": "string"
+     },
+     "parent_id": {
+      "description": "UUID of parent folder (optional, for nested folders)",
+      "type": "string"
+     }
+    },
+    "required": [
+     "name",
+     "group_id"
+    ],
+    "type": "object"
+   },
+   "name": "create_folder"
+  },
+  {
+   "description": "Update an existing folder",
+   "inputSchema": {
+    "properties": {
+     "color": {
+      "description": "New hex color code (optional)",
+      "type": "string"
+     },
+     "icon": {
+      "description": "New SF Symbol icon name (optional)",
+      "type": "string"
+     },
+     "id": {
+      "description": "The UUID of the folder to update",
+      "type": "string"
+     },
+     "name": {
+      "description": "New name (optional)",
+      "type": "string"
+     },
+     "parent_id": {
+      "description": "New parent folder UUID (optional, use empty string to move to root)",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "name": "update_folder"
+  },
+  {
+   "description": "Delete a folder (snippets in the folder will be moved to no folder)",
+   "inputSchema": {
+    "properties": {
+     "id": {
+      "description": "The UUID of the folder to delete",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "name": "delete_folder"
+  },
+  {
+   "description": "Create a new tag",
+   "inputSchema": {
+    "properties": {
+     "color": {
+      "description": "Hex color code (optional)",
+      "type": "string"
+     },
+     "name": {
+      "description": "Name of the tag",
+      "type": "string"
+     }
+    },
+    "required": [
+     "name"
+    ],
+    "type": "object"
+   },
+   "name": "create_tag"
+  },
+  {
+   "description": "Delete a tag",
+   "inputSchema": {
+    "properties": {
+     "id": {
+      "description": "The UUID of the tag to delete",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "name": "delete_tag"
+  },
+  {
+   "description": "Add a tag to a snippet",
+   "inputSchema": {
+    "properties": {
+     "snippet_id": {
+      "description": "The UUID of the snippet",
+      "type": "string"
+     },
+     "tag_id": {
+      "description": "The UUID of the tag to add",
+      "type": "string"
+     }
+    },
+    "required": [
+     "snippet_id",
+     "tag_id"
+    ],
+    "type": "object"
+   },
+   "name": "add_tag_to_snippet"
+  },
+  {
+   "description": "Remove a tag from a snippet",
+   "inputSchema": {
+    "properties": {
+     "snippet_id": {
+      "description": "The UUID of the snippet",
+      "type": "string"
+     },
+     "tag_id": {
+      "description": "The UUID of the tag to remove",
+      "type": "string"
+     }
+    },
+    "required": [
+     "snippet_id",
+     "tag_id"
+    ],
+    "type": "object"
+   },
+   "name": "remove_tag_from_snippet"
+  },
+  {
+   "description": "List all attachments for a specific snippet",
+   "inputSchema": {
+    "properties": {
+     "snippet_id": {
+      "description": "The UUID of the snippet",
+      "type": "string"
+     }
+    },
+    "required": [
+     "snippet_id"
+    ],
+    "type": "object"
+   },
+   "name": "list_attachments"
+  },
+  {
+   "description": "Get a specific attachment by its ID",
+   "inputSchema": {
+    "properties": {
+     "id": {
+      "description": "The UUID of the attachment",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "name": "get_attachment"
+  },
+  {
+   "description": "Create a new attachment from base64-encoded content",
+   "inputSchema": {
+    "properties": {
+     "content_base64": {
+      "description": "Base64-encoded file content",
+      "type": "string"
+     },
+     "filename": {
+      "description": "Filename with extension (e.g., 'screenshot.png')",
+      "type": "string"
+     },
+     "mime_type": {
+      "description": "MIME type (optional, auto-detected from extension)",
+      "type": "string"
+     },
+     "snippet_id": {
+      "description": "The UUID of the snippet to attach to",
+      "type": "string"
+     }
+    },
+    "required": [
+     "snippet_id",
+     "filename",
+     "content_base64"
+    ],
+    "type": "object"
+   },
+   "name": "create_attachment"
+  },
+  {
+   "description": "Delete a snippet attachment",
+   "inputSchema": {
+    "properties": {
+     "id": {
+      "description": "The UUID of the attachment to delete",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "name": "delete_attachment"
+  },
+  {
+   "description": "Search for public code snippets on SnipperApp Hub (the community snippet sharing platform at snipperapp.com). Returns snippets published by the community.",
+   "inputSchema": {
+    "properties": {
+     "language": {
+      "description": "Filter by programming language (e.g. 'swift', 'typescript')",
+      "type": "string"
+     },
+     "limit": {
+      "description": "Maximum number of results (default 10, max 50)",
+      "type": "integer"
+     },
+     "query": {
+      "description": "Search query to match against title, description, and code",
+      "type": "string"
+     },
+     "sort": {
+      "description": "Sort order: 'relevance' (default), 'popular', 'recent', 'imports'",
+      "type": "string"
+     }
+    },
+    "required": [
+     "query"
+    ],
+    "type": "object"
+   },
+   "name": "search_hub"
+  },
+  {
+   "description": "Get a specific public snippet from SnipperApp Hub by its ID. Returns full snippet details including code, author, and stats.",
+   "inputSchema": {
+    "properties": {
+     "id": {
+      "description": "The UUID of the Hub snippet",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "name": "get_hub_snippet"
+  },
+  {
+   "description": "Import a public snippet from SnipperApp Hub into the local library. Fetches the snippet from Hub and creates a local copy.",
+   "inputSchema": {
+    "properties": {
+     "folder_id": {
+      "description": "UUID of the local folder to place the imported snippet in (optional)",
+      "type": "string"
+     },
+     "id": {
+      "description": "The UUID of the Hub snippet to import",
+      "type": "string"
+     },
+     "workspace_id": {
+      "description": "UUID of the workspace (optional, defaults to first workspace)",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "type": "object"
+   },
+   "name": "import_from_hub"
+  }
+ ]
+}
