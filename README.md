@@ -1,5 +1,7 @@
 # snipper-mcp — the MCP server inside SnipperApp 3
 
+![SnipperApp 3 — code snippet manager for macOS](assets/screenshot.png)
+
 [SnipperApp 3](https://snipperapp.com) is a native macOS code snippet manager. It ships its own [Model Context Protocol](https://modelcontextprotocol.io) server, so AI assistants can search, read, create and organise the snippets in your library. There is nothing to install: the server is a stdio binary bundled in the app.
 
 This repository documents the server's interface. The server itself is part of the app (Swift, built on the [Swift MCP SDK](https://github.com/modelcontextprotocol/swift-sdk)).
@@ -62,4 +64,4 @@ The server reads and writes the same local SQLite database as the app, so anythi
 
 ## Support
 
-Issues and feature requests: https://github.com/SnipperApp/Snipper/issues · support@snipper.app
+Issues and feature requests: https://github.com/SnipperApp/snipperapp/issues · support@snipper.app
