@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "snipper": {
+      "command": "/Applications/SnipperApp 3.app/Contents/MacOS/snipper-mcp",
+      "args": [],
+      "env": {}
+    }
+  }
+}
