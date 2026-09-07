@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "snipperapp",
   "display_name": "SnipperApp 3",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Search, read, create, and organise your SnipperApp 3 code snippets from Claude. Requires SnipperApp 3 for macOS.",
   "long_description": "SnipperApp 3 is a native macOS code snippet manager. It ships its own MCP server (snipper-mcp) inside the app; this extension launches it so Claude can search your library, read snippets, save new ones into the right workspace and folder, tag them, and browse the public SnipperApp Hub. Everything stays on your Mac. Requires SnipperApp 3 (Mac App Store, free 7-day trial, macOS 15+). Without the app, the launcher still answers initialize and tools/list, so clients can inspect the 25 tools; calls return a clear not-installed error.",
   "author": {
@@ -12,7 +12,10 @@
   },
   "homepage": "https://snipperapp.com",
   "documentation": "https://snipperapp.com/docs/mcp-integration",
-  "support": "https://github.com/SnipperApp/Snipper/issues",
+  "privacy_policies": [
+    "https://snipperapp.com/privacy"
+  ],
+  "support": "mailto:support@snipper.app",
   "icon": "icon.png",
   "server": {
     "type": "node",
@@ -25,106 +28,31 @@
     }
   },
   "tools": [
-    {
-      "name": "search_snippets",
-      "description": "Search snippets by text, language, or favourite status"
-    },
-    {
-      "name": "get_snippet",
-      "description": "Get a snippet with its content and metadata"
-    },
-    {
-      "name": "create_snippet",
-      "description": "Create a snippet in a workspace and folder"
-    },
-    {
-      "name": "update_snippet",
-      "description": "Update a snippet's title, content, language, or favourite flag"
-    },
-    {
-      "name": "delete_snippet",
-      "description": "Move a snippet to the trash"
-    },
-    {
-      "name": "list_folders",
-      "description": "List folders"
-    },
-    {
-      "name": "create_folder",
-      "description": "Create a folder"
-    },
-    {
-      "name": "update_folder",
-      "description": "Rename or move a folder"
-    },
-    {
-      "name": "delete_folder",
-      "description": "Delete a folder"
-    },
-    {
-      "name": "list_tags",
-      "description": "List tags"
-    },
-    {
-      "name": "create_tag",
-      "description": "Create a tag"
-    },
-    {
-      "name": "delete_tag",
-      "description": "Delete a tag"
-    },
-    {
-      "name": "add_tag_to_snippet",
-      "description": "Tag a snippet"
-    },
-    {
-      "name": "remove_tag_from_snippet",
-      "description": "Untag a snippet"
-    },
-    {
-      "name": "list_attachments",
-      "description": "List a snippet's attachments"
-    },
-    {
-      "name": "get_attachment",
-      "description": "Get an attachment"
-    },
-    {
-      "name": "create_attachment",
-      "description": "Attach a file to a snippet"
-    },
-    {
-      "name": "delete_attachment",
-      "description": "Delete an attachment"
-    },
-    {
-      "name": "list_workspaces",
-      "description": "List workspaces"
-    },
-    {
-      "name": "list_storages",
-      "description": "List storages (iCloud, GitHub Gist, local)"
-    },
-    {
-      "name": "list_groups",
-      "description": "List folder groups"
-    },
-    {
-      "name": "list_languages",
-      "description": "List supported languages"
-    },
-    {
-      "name": "search_hub",
-      "description": "Search public snippets on SnipperApp Hub"
-    },
-    {
-      "name": "get_hub_snippet",
-      "description": "Get a public Hub snippet"
-    },
-    {
-      "name": "import_from_hub",
-      "description": "Import a Hub snippet into the library"
-    }
+    { "name": "search_snippets", "description": "Search snippets by text, language, or favourite status" },
+    { "name": "get_snippet", "description": "Get a snippet with its content and metadata" },
+    { "name": "create_snippet", "description": "Create a snippet in a workspace and folder" },
+    { "name": "update_snippet", "description": "Update a snippet's title, content, language, or favourite flag" },
+    { "name": "delete_snippet", "description": "Move a snippet to the trash" },
+    { "name": "list_folders", "description": "List folders" },
+    { "name": "create_folder", "description": "Create a folder" },
+    { "name": "update_folder", "description": "Rename or move a folder" },
+    { "name": "delete_folder", "description": "Delete a folder" },
+    { "name": "list_tags", "description": "List tags" },
+    { "name": "create_tag", "description": "Create a tag" },
+    { "name": "delete_tag", "description": "Delete a tag" },
+    { "name": "add_tag_to_snippet", "description": "Tag a snippet" },
+    { "name": "remove_tag_from_snippet", "description": "Untag a snippet" },
+    { "name": "list_attachments", "description": "List a snippet's attachments" },
+    { "name": "get_attachment", "description": "Get an attachment" },
+    { "name": "create_attachment", "description": "Attach a file to a snippet" },
+    { "name": "delete_attachment", "description": "Delete an attachment" },
+    { "name": "list_workspaces", "description": "List workspaces" },
+    { "name": "list_storages", "description": "List storages (iCloud, GitHub Gist, local)" },
+    { "name": "list_groups", "description": "List folder groups" },
+    { "name": "list_languages", "description": "List supported languages" },
+    { "name": "search_hub", "description": "Search public snippets on SnipperApp Hub" },
+    { "name": "get_hub_snippet", "description": "Get a public Hub snippet" },
+    { "name": "import_from_hub", "description": "Import a Hub snippet into the library" }
   ],
   "keywords": [
     "snippets",
