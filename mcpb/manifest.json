@@ -2,13 +2,13 @@
   "manifest_version": "0.3",
   "name": "snipperapp",
   "display_name": "SnipperApp 3",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Search, read, create, and organise your SnipperApp 3 code snippets from Claude. Requires SnipperApp 3 for macOS.",
   "long_description": "SnipperApp 3 is a native macOS code snippet manager. It ships its own MCP server (snipper-mcp) inside the app; this extension launches it so Claude can search your library, read snippets, save new ones into the right workspace and folder, tag them, and browse the public SnipperApp Hub. Everything stays on your Mac. Requires SnipperApp 3 (Mac App Store, free 7-day trial, macOS 15+). Without the app, the launcher still answers initialize and tools/list, so clients can inspect the 25 tools; calls return a clear not-installed error.",
   "author": {
     "name": "Andrii Teologov",
     "email": "support@snipper.app",
-    "url": "https://snipperapp.com"
+    "url": "https://github.com/teologov"
   },
   "homepage": "https://snipperapp.com",
   "documentation": "https://snipperapp.com/docs/mcp-integration",
