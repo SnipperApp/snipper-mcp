@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
   "name": "io.github.SnipperApp/snipper-mcp",
   "description": "Search, read, create and organise code snippets in SnipperApp 3, a native macOS snippet manager.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "repository": {
     "url": "https://github.com/SnipperApp/snipper-mcp",
     "source": "github"
@@ -11,9 +11,9 @@
   "packages": [
     {
       "registryType": "mcpb",
-      "identifier": "https://github.com/SnipperApp/snipper-mcp/releases/download/v1.0.1/snipperapp-1.0.1.mcpb",
-      "version": "1.0.1",
-      "fileSha256": "2aca2d1ad76189640601b0159f2e4ff10828afe9ad67cbd73c6fea41304d1ac5",
+      "identifier": "https://github.com/SnipperApp/snipper-mcp/releases/download/v1.0.2/snipperapp-1.0.2.mcpb",
+      "version": "1.0.2",
+      "fileSha256": "f1af01d4f849c396024f09613033a2c2b405e22415fac194c11769ff09722ca4",
       "transport": {
         "type": "stdio"
       }
