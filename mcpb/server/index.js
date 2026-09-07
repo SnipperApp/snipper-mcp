@@ -12,7 +12,7 @@ const { existsSync } = require("node:fs");
 const path = require("node:path");
 const readline = require("node:readline");
 
-const VERSION = "1.0.3";
+const VERSION = "1.0.4";
 const APP_STORE = "https://apps.apple.com/us/app/snipperapp-3-code-snippets/id6757330954?mt=12";
 const home = process.env.HOME || "";
 const candidates = [
